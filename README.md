@@ -1,27 +1,16 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # AppShop
 aplicación hecha con Flutter 
-=======
-=======
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
+
+
 # dejavu
+# ScreenShots
+![Screenshot_2019-09-03-14-46-05](https://user-images.githubusercontent.com/28877837/64149886-c0ac3d00-cdec-11e9-935b-84373d4cfae0.png)
+![Screenshot_2019-09-03-14-46-19](https://user-images.githubusercontent.com/28877837/64149888-c0ac3d00-cdec-11e9-97e5-3724a421e9f8.png)
+![Screenshot_2019-09-03-14-46-28](https://user-images.githubusercontent.com/28877837/64149885-c0ac3d00-cdec-11e9-87d0-44fc70155e7d.png)
 
-A new Flutter project.
 
-## Getting Started
+## Flutter project run:
+- flutter packages get
+- flutter run
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
-<<<<<<< HEAD
->>>>>>> homepage creado
-=======
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
