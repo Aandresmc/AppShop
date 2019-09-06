@@ -84,19 +84,19 @@ class _Stepper2State extends State<StepperTouch>
           type: MaterialType.canvas,
           clipBehavior: Clip.antiAlias,
           borderRadius: BorderRadius.circular(60.0),
-          color: Colors.white.withOpacity(0.2),
+          color: Colors.pinkAccent[100],
           child: Stack(
             alignment: Alignment.center,
             children: <Widget>[
               Positioned(
                 left: widget.direction == Axis.horizontal ? 10.0 : null,
                 bottom: widget.direction == Axis.horizontal ? null : 10.0,
-                child: Icon(Icons.remove, size: 40.0, color: Colors.white),
+                child: Icon(Icons.remove, size: 50.0, color: Colors.white),
               ),
               Positioned(
                 right: widget.direction == Axis.horizontal ? 10.0 : null,
                 top: widget.direction == Axis.horizontal ? null : 10.0,
-                child: Icon(Icons.add, size: 40.0, color: Colors.white),
+                child: Icon(Icons.add, size: 50.0, color: Colors.white),
               ),
               GestureDetector(
                 onHorizontalDragStart: _onPanStart,
@@ -116,9 +116,15 @@ class _Stepper2State extends State<StepperTouch>
                           return ScaleTransition(
                               child: child, scale: animation);
                         },
-                        child: Text(
-                          '$_value',
+                        child: TextFormField(
+                          autofocus: false,
+                          textAlign: TextAlign.center,
+                          keyboardType: TextInputType.number,
+                          initialValue: _value.toString(),
                           key: ValueKey<int>(_value),
+                          onFieldSubmitted: (value) =>
+                              _value = (value == '0' ? 1 : int.parse(value)),
+                          decoration: InputDecoration(border: InputBorder.none),
                           style: TextStyle(
                               color: Color(0xFF6D72FF), fontSize: 56.0),
                         ),
@@ -160,9 +166,7 @@ class _Stepper2State extends State<StepperTouch>
     bool isHor = widget.direction == Axis.horizontal;
     bool changed = false;
     if (_controller.value <= -0.20) {
-      setState(() => {
-            if (isHor) _value <= 1 ? _value = 1 : _value--
-          });
+      setState(() => {if (isHor) _value <= 1 ? _value = 1 : _value--});
       changed = true;
     } else if (_controller.value >= 0.20) {
       setState(() => isHor ? _value++ : _value--);

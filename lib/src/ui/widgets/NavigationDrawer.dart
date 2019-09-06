@@ -1,34 +1,29 @@
+import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 Widget navigationDrawer(BuildContext context) {
-  final Color rose = Color.fromRGBO(250, 138, 138, 1);
+  final Color rose = Color.fromRGBO(255, 145, 145, 10);
   double _height = MediaQuery.of(context).size.height;
 
   return Drawer(
     child: Column(
       children: <Widget>[
         Opacity(
-          opacity: 0.75,
+          opacity: 0.8,
           child: Container(
-<<<<<<< HEAD
-            
-            padding: EdgeInsets.only(top: _height / 20 , bottom: _height / 50 ),
-=======
-            height: _height / 6,
-            padding: EdgeInsets.only(top: _height / 20),
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
+            padding: EdgeInsets.only(top: _height / 20, bottom: _height / 50),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [rose, Colors.pinkAccent],
+                colors: [Colors.pinkAccent,Colors.pink[300]],
               ),
             ),
             child: ListTile(
               onTap: () {},
               leading: CircleAvatar(
                 child: Icon(
-                  Icons.person,
+                  FeatherIcons.user,
                   size: 40,
-                  color: Colors.black,
+                  color: Colors.pink,
                 ),
                 radius: 30,
                 backgroundColor: Colors.white,
@@ -37,38 +32,38 @@ Widget navigationDrawer(BuildContext context) {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15.0,
-                      color: Colors.white70)),
+                      color: Colors.white)),
               subtitle: Text(
                 "3225397909",
-                style: TextStyle(fontSize: 13, color: Colors.white70),
+                style: TextStyle(fontSize: 15, color: Colors.white70),
               ),
               trailing: Icon(
-                Icons.arrow_forward_ios,
+                FeatherIcons.chevronRight,
                 color: Colors.white54,
+                size: 30,
               ),
             ),
           ),
         ),
-<<<<<<< HEAD
         Column(
           children: <Widget>[
             ListTile(
               onTap: () {},
               leading: Icon(
-                Icons.payment,
+                FeatherIcons.creditCard,
                 color: Colors.lightBlueAccent,
               ),
               title: Text("Ordenes & Pagos"),
             ),
             ListTile(
               onTap: () {},
-              leading: Icon(Icons.favorite, color: Colors.redAccent),
+              leading: Icon(FeatherIcons.heart, color: Colors.redAccent),
               title: Text("Productos Favoritos"),
             ),
             ListTile(
               onTap: () {},
               leading: Icon(
-                Icons.shopping_cart,
+                FeatherIcons.shoppingCart,
                 color: Colors.amberAccent,
               ),
               title: Text("Carrito Compras"),
@@ -84,36 +79,13 @@ Widget navigationDrawer(BuildContext context) {
             "Cerrar Sesión",
             style: TextStyle(fontSize: 16),
           ),
-          onTap: () {},
           leading: Icon(
-            Icons.exit_to_app,
+            FeatherIcons.logOut,
             color: Colors.blueGrey,
             size: _height / 29,
           ),
-        ),
-=======
-        ListTile(
           onTap: () {},
-          leading: Icon(
-            Icons.payment,
-            color: Colors.lightBlueAccent,
-          ),
-          title: Text("Ordenes & Pagos"),
         ),
-        ListTile(
-          onTap: () {},
-          leading: Icon(Icons.favorite, color: Colors.redAccent),
-          title: Text("Productos Favoritos"),
-        ),
-        ListTile(
-          onTap: () {},
-          leading: Icon(
-            Icons.shopping_cart,
-            color: Colors.amberAccent,
-          ),
-          title: Text("Carrito Compras"),
-        )
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
       ],
     ),
   );

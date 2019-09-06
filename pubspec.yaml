@@ -25,13 +25,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   curved_navigation_bar: any
   flutter_money_formatter: any
-<<<<<<< HEAD
   feather_icons_flutter: any
   stepper_touch: any
   flutter_swiper: any
   cached_network_image: any
-=======
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
 
 dev_dependencies:
   flutter_test:

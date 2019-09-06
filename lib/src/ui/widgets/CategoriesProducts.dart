@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CategoriesProducts extends StatefulWidget {
-<<<<<<< HEAD
   bool _isExpanded = false;
   _CategoriesProductsState createState() => _CategoriesProductsState();
 }
 
 
-=======
-  _CategoriesProductsState createState() => _CategoriesProductsState();
-}
-
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
 class _CategoriesProductsState extends State<CategoriesProducts> {
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
-<<<<<<< HEAD
-=======
-    bool isExpanded = false;
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
 
     return Container(
       child: Column(children: <Widget>[
@@ -31,17 +21,11 @@ class _CategoriesProductsState extends State<CategoriesProducts> {
             children: <Widget>[
               Text('Categorias', style: TextStyle(fontSize: 16)),
               GestureDetector(
-<<<<<<< HEAD
                   onTap: () {
                     setState(() => widget._isExpanded = !widget._isExpanded);
                   },
                   child: Text(
                     widget._isExpanded ? "Ocultar" : "Ver Todos",
-=======
-                  onTap: () => setState(() => isExpanded = !isExpanded),
-                  child: Text(
-                    isExpanded ? "Ocultar" : "Ver Todos",
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
                     style: TextStyle(
                       color: Colors.purple[300],
                     ),
@@ -52,6 +36,7 @@ class _CategoriesProductsState extends State<CategoriesProducts> {
         Container(
           margin: EdgeInsets.only(left: 10, right: 10),
           child: AnimatedCrossFade(
+            
             firstChild: GridView.count(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -371,11 +356,7 @@ class _CategoriesProductsState extends State<CategoriesProducts> {
                 ),
               ],
             ),
-<<<<<<< HEAD
             crossFadeState: widget._isExpanded
-=======
-            crossFadeState: isExpanded
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
                 ? CrossFadeState.showSecond
                 : CrossFadeState.showFirst,
             duration: Duration(milliseconds: 350),

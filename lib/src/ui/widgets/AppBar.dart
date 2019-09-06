@@ -1,5 +1,6 @@
 import 'package:dejavu/src/ui/widgets/Badge.dart';
 import 'package:dejavu/src/ui/widgets/CustomShape.dart';
+import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 Widget appbarGradient(
@@ -25,7 +26,7 @@ Widget appbarGradient(
               print('Editing location');
             },
             child: Icon(
-              Icons.location_on,
+             FeatherIcons.mapPin,
               color: Colors.white,
               size: _height / 40,
             ),
@@ -43,21 +44,22 @@ Widget appbarGradient(
     ),
   );
 
-  final Widget _buttonNotificacions = IconBadge(icon: Icons.notifications,number: 2);
+  final Widget _buttonNotificacions =
+      IconBadge(icon: FeatherIcons.shoppingCart, number: 2);
 
   final Widget _buttonNavigationDrawer = Opacity(
     opacity: 0.75,
     child: Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      child: GestureDetector(
-          onTap: () {
-            scaffoldKey.currentState.openDrawer();
-          },
-          child: Image.asset(
-            'assets/images/menubutton.png',
-            height: _height / 40,
-          )),
-    ),
+        child: GestureDetector(
+            onTap: () {
+              scaffoldKey.currentState.openDrawer();
+            },
+            child: Icon(FeatherIcons.settings,
+                size: _height / 35, color: Colors.white,)) // child: Image.asset(
+        //   'assets/images/menubutton.png',
+        //   height: _height / 40,
+        // )),
+        ),
   );
 
   final Widget _searchProducts = Container(
@@ -68,11 +70,11 @@ Widget appbarGradient(
       elevation: 2.5,
       child: Container(
         child: TextFormField(
-          cursorColor: rose,
+          cursorColor: Colors.white,
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.all(10),
-            prefixIcon: Icon(Icons.search, color: rose, size: 30),
+            prefixIcon: Icon(Icons.search, color: Colors.pink, size: 30),
             hintText: "¿Qué estás buscando?",
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30.0),
@@ -93,7 +95,7 @@ Widget appbarGradient(
             height: _height / 3,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [rose, Colors.pinkAccent],
+                colors: [Colors.pink, rose],
               ),
             ),
           ),
@@ -121,7 +123,7 @@ Widget appbarGradient(
             height: _height / 3,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [rose, Colors.pinkAccent],
+                colors: [Colors.pink,Colors.pink],
               ),
             ),
           ),

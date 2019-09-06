@@ -1,3 +1,4 @@
+import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_money_formatter/flutter_money_formatter.dart';
 
@@ -28,7 +29,6 @@ class ProductCard extends StatelessWidget {
     final precio = FlutterMoneyFormatter(amount: price).output.withoutFractionDigits;
     String value = '$symbol $precio';
 
-<<<<<<< HEAD
     return GestureDetector(
       onTap: () => Navigator.of(context).pushNamed('detail'),
       child: Card(
@@ -36,7 +36,7 @@ class ProductCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
         color: Colors.white,
         child: Container(
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.all(12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -49,7 +49,7 @@ class ProductCard extends StatelessWidget {
                         fontWeight: FontWeight.bold, fontSize: _height / 45),
                   ),
                   Container(
-                    width: _width / 2.3,
+                    width: _width / 2.5,
                     padding: EdgeInsets.only(top: 4),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,14 +64,14 @@ class ProductCard extends StatelessWidget {
                         ),
                         Material(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.grey[100],
+                          color: Colors.grey[50],
                           child: Container(
                             margin: EdgeInsets.all(8),
                             color: Colors.transparent,
                             child: Text(
                               category,
                               softWrap: true,
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(fontSize: 12,color: Colors.pinkAccent[200]),
                             ),
                           ),
                         ),
@@ -80,14 +80,14 @@ class ProductCard extends StatelessWidget {
                   ),
                   Flexible(
                     child: Container(
-                        margin: EdgeInsets.only(top: 10),
+                        margin: EdgeInsets.only(top: 10, right: 10),
                         width: _width / 2.5,
                         child: Text(
                           description,
                           style: TextStyle(
-                            fontSize: _height / 62,
+                            fontSize: _height / 55,
                           ),
-                          maxLines: 4,
+                          maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           softWrap: true,
                         )),
@@ -108,7 +108,7 @@ class ProductCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       child: Image.asset(
                         image,
-                        height: _height / 6.7,
+                        height: _height / 6,
                         width: _width,
                         fit: BoxFit.cover,
                       ),
@@ -124,7 +124,7 @@ class ProductCard extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.all(5),
                           child: Icon(
-                            Icons.favorite,
+                           FeatherIcons.heart,
                             color: Colors.pinkAccent[200],
                             size: 18,
                           ),
@@ -136,112 +136,6 @@ class ProductCard extends StatelessWidget {
               ),
             ],
           ),
-=======
-    return Card(
-      elevation: 1,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      color: Colors.white,
-      child: Container(
-        padding: EdgeInsets.all(15),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  title,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: _height / 45),
-                ),
-                Container(
-                  width: _width / 2.3,
-                  padding: EdgeInsets.only(top: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Flexible(
-                        child: Text(
-                          value,
-                          style: TextStyle(
-                            fontSize: 16.5,
-                          ),
-                        ),
-                      ),
-                      Material(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.grey[100],
-                        child: Container(
-                          margin: EdgeInsets.all(8),
-                          color: Colors.transparent,
-                          child: Text(
-                            category,
-                            softWrap: true,
-                            style: TextStyle(fontSize: 12),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Flexible(
-                  child: Container(
-                      margin: EdgeInsets.only(top: 10),
-                      width: _width / 2.5,
-                      child: Text(
-                        description,
-                        style: TextStyle(
-                          fontSize: _height / 62,
-                        ),
-                        maxLines: 4,
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: true,
-                      )),
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Container(
-              width: _width / 2.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: <Widget>[
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.asset(
-                      image,
-                      height: _height / 6.7,
-                      width: _width,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Positioned(
-                    right: -10.0,
-                    bottom: 3.0,
-                    child: RawMaterialButton(
-                      onPressed: () {},
-                      fillColor: Colors.white,
-                      shape: CircleBorder(),
-                      elevation: 1,
-                      child: Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Icon(
-                          Icons.favorite,
-                          color: Colors.pinkAccent[200],
-                          size: 18,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
->>>>>>> 26e7e5a617befa52ee211bafa5872d22a7998505
         ),
       ),
     );
