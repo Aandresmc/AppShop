@@ -26,7 +26,7 @@ class _ListProductsState extends State<ListProducts> {
       body: Stack(children: <Widget>[
         NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-             _verSearch= !innerBoxIsScrolled; 
+            _verSearch = !innerBoxIsScrolled;
             return <Widget>[
               SliverAppBar(
                 backgroundColor: Colors.transparent,
@@ -160,7 +160,7 @@ class _ListProductsState extends State<ListProducts> {
                   Expanded(
                     child: Container(
                       color: Colors.white,
-                      padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
+                      padding: EdgeInsets.fromLTRB(10, 20, 10, 5),
                       child: Row(
                         children: <Widget>[
                           Expanded(
@@ -212,8 +212,8 @@ class _ListProductsState extends State<ListProducts> {
               imageUrl:
                   'https://image.dhgate.com/0x0/f2/albu/g5/M01/67/C3/rBVaI1jLSL-AViD5AAdD91znoz8264.jpg',
               imageBuilder: (context, img) => Container(
-                  margin: EdgeInsets.only(top: 50),
-                  height: _height * 0.3,
+                  margin: EdgeInsets.only(top: _height * 0.07),
+                  height: _height * 0.33,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.elliptical(15, 20),
@@ -263,7 +263,7 @@ class _ListProductsState extends State<ListProducts> {
             Positioned(
               bottom: 0,
               width: _width * 0.47,
-              height: _height * 0.07,
+              height: _height * 0.06,
               child: MaterialButton(
                 onPressed: () {},
                 color: Colors.deepPurpleAccent[100],
