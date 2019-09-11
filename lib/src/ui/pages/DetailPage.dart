@@ -10,12 +10,13 @@ class DetailProduct extends StatefulWidget {
   _DetailProductState createState() => _DetailProductState();
 }
 
-class _DetailProductState extends State<DetailProduct> {
-  num _cantidad = 1;
-  num _maxLinesDescription = 3;
-  IconData iconDescription = FeatherIcons.moreHorizontal;
-  bool _verMas = false;
+bool _enCache = false;
+num _cantidad = 1;
+num _maxLinesDescription = 3;
+IconData iconDescription = FeatherIcons.moreHorizontal;
+bool _verMas = false;
 
+class _DetailProductState extends State<DetailProduct> {
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
@@ -66,44 +67,50 @@ class _DetailProductState extends State<DetailProduct> {
             height: _height / 5,
             width: _width,
             bottom: 0,
-            child: Container(
-              decoration: BoxDecoration(color: Color.fromARGB(255, 42, 42, 42)),
-              padding: EdgeInsets.only(right: 20, left: 20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                      flex: 4,
+            child: AnimatedOpacity(
+              duration: Duration(seconds: 1),
+              opacity: (_enCache ? 1.0 : 0.0),
+              child: Container(
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 42, 42, 42)),
+                padding: EdgeInsets.only(right: 20, left: 20),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                        flex: 4,
+                        child: Container(
+                          margin:
+                              EdgeInsets.only(top: _height / 10, bottom: 10),
+                          child: RichText(
+                            text: TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Agregar',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25)),
+                                TextSpan(
+                                    text: ' Al Carrito!',
+                                    style: TextStyle(
+                                        fontSize: 25, color: Colors.grey)),
+                              ],
+                            ),
+                          ),
+                        )),
+                    Expanded(
                       child: Container(
                         margin: EdgeInsets.only(top: _height / 10, bottom: 10),
-                        child: RichText(
-                          text: TextSpan(
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: 'Agregar',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25)),
-                              TextSpan(
-                                  text: ' Al Carrito!',
-                                  style: TextStyle(
-                                      fontSize: 25, color: Colors.grey)),
-                            ],
-                          ),
+                        child: FloatingActionButton(
+                          backgroundColor: Colors.pinkAccent[200],
+                          onPressed: () {},
+                          child: Icon(FeatherIcons.chevronRight,
+                              color: Colors.white, size: 30),
                         ),
-                      )),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(top: _height / 10, bottom: 10),
-                      child: FloatingActionButton(
-                        backgroundColor: Colors.pinkAccent[200],
-                        onPressed: () {},
-                        child: Icon(FeatherIcons.chevronRight,
-                            color: Colors.white, size: 30),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -125,39 +132,61 @@ class _DetailProductState extends State<DetailProduct> {
                     Center(
                       child: Container(
                         height: _height / 3,
-                        width: _width / 1.3,
                         margin: EdgeInsets.only(top: 15),
                         child: Swiper(
                           itemBuilder: (BuildContext context, int index) {
-                            return ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
-                                child: CachedNetworkImage(
-                                  imageUrl:
-                                      'https://image.dhgate.com/0x0/f2/albu/g5/M01/67/C3/rBVaI1jLSL-AViD5AAdD91znoz8264.jpg',
-                                  imageBuilder: (context, img) =>
-                                      AnimatedOpacity(
-                                          opacity: 1.0,
-                                          duration: Duration(milliseconds: 500),
-                                          child: Container(
-                                              decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: img,
-                                              fit: BoxFit.fill,
-                                            ),
-                                          ))),
-                                  placeholder: (context, url) => Center(
+                            _enCache = true;
+                            return Stack(
+                              children: <Widget>[
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    child: CachedNetworkImage(
+                                      imageUrl:
+                                          'https://image.dhgate.com/0x0/f2/albu/g5/M01/67/C3/rBVaI1jLSL-AViD5AAdD91znoz8264.jpg',
+                                      imageBuilder: (context, img) =>
+                                          AnimatedOpacity(
+                                              opacity: (_enCache ? 1.0 : 0.0),
+                                              duration: Duration(seconds: 1),
+                                              child: Container(
+                                                  decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: img,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ))),
+                                      placeholder: (context, url) => Center(
+                                        child: Padding(
+                                          padding: EdgeInsets.all(20),
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                                    Colors.pink[300]),
+                                          ),
+                                        ),
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          Icon(Icons.error),
+                                    )),
+                                Positioned(
+                                  right: -10.0,
+                                  bottom: 20,
+                                  child: RawMaterialButton(
+                                    onPressed: () {},
+                                    fillColor: Colors.white,
+                                    shape: CircleBorder(),
+                                    elevation: 4.0,
                                     child: Padding(
-                                      padding: EdgeInsets.all(20),
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                                Colors.pink[300]),
+                                      padding: EdgeInsets.all(5),
+                                      child: Icon(
+                                        FeatherIcons.heart,
+                                        color: Theme.of(context).accentColor,
+                                        size: 17,
                                       ),
                                     ),
                                   ),
-                                  errorWidget: (context, url, error) =>
-                                      Icon(Icons.error),
-                                ));
+                                )
+                              ],
+                            );
                           },
                           itemWidth: _width * 0.6,
                           itemCount: 5,
@@ -252,7 +281,8 @@ class _DetailProductState extends State<DetailProduct> {
                                     }
                                   else
                                     {
-                                      iconDescription = FeatherIcons.moreHorizontal,
+                                      iconDescription =
+                                          FeatherIcons.moreHorizontal,
                                       _maxLinesDescription = 4
                                     }
                                 })

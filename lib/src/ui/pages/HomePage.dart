@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
   double _height;
   double _width;
@@ -22,8 +21,8 @@ class _HomePageState extends State<HomePage> {
 
     _height = MediaQuery.of(context).size.height;
     _width = MediaQuery.of(context).size.width;
-    
-    return  Scaffold(
+
+    return Scaffold(
       bottomNavigationBar: curvedNavigation(),
       key: scaffoldKey,
       drawer: navigationDrawer(context),
@@ -44,8 +43,7 @@ class _HomePageState extends State<HomePage> {
                     Text("Productos", style: TextStyle(fontSize: 16)),
                     GestureDetector(
                         onTap: () {
-                          // Navigator.of(context).pushNamed('products');
-                          print('ver todos los productos');
+                          Navigator.of(context).pushNamed('products');
                         },
                         child: Text(
                           'Ver Todos',
@@ -64,8 +62,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-
   Widget products() {
     return Container(
       height: _height / 4,
@@ -82,7 +78,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildproductsEntries(BuildContext context, int index, List<Product> listItem) {
+  Widget _buildproductsEntries(
+      BuildContext context, int index, List<Product> listItem) {
     return GestureDetector(
       onTap: () {
         //Navigator.of(context).pushNamed(DETAIL_UI);
@@ -99,5 +96,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  
 }

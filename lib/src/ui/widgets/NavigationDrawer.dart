@@ -2,7 +2,6 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 Widget navigationDrawer(BuildContext context) {
-  final Color rose = Color.fromRGBO(255, 145, 145, 10);
   double _height = MediaQuery.of(context).size.height;
 
   return Drawer(
